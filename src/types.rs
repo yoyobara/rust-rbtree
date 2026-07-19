@@ -1,16 +1,16 @@
 pub struct Node<T> {
-    value: T,
-    right: Option<Box<Self>>,
-    left: Option<Box<Self>>,
+    pub value: T,
+    pub right: Option<Box<Self>>,
+    pub left: Option<Box<Self>>,
 }
 
 pub trait RbtreeSetExt<T: Ord> {
-    fn add(value: T);
-    fn contains(value: T) -> bool;
-    fn remove(value: T) -> bool;
-    fn size() -> usize;
+    fn add(&mut self, value: T);
+    fn contains(&self, value: T) -> bool;
+    fn remove(&self, value: T) -> bool;
+    fn size(&self) -> usize;
 }
 
 pub struct RBTreeSet<T> {
-    root: Option<Node<T>>,
+    pub(crate) root: Option<Box<Node<T>>>,
 }
