@@ -1,6 +1,6 @@
 use crate::{
     types::{Node, RBTreeSet, RbtreeSetExt},
-    utils::inner_add,
+    utils::{inner_add, inner_size},
 };
 
 impl<T: Ord> RbtreeSetExt<T> for RBTreeSet<T> {
@@ -23,6 +23,6 @@ impl<T: Ord> RbtreeSetExt<T> for RBTreeSet<T> {
     }
 
     fn size(&self) -> usize {
-        todo!()
+        inner_size(&self.root)
     }
 }

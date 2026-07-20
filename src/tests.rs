@@ -1,6 +1,4 @@
 #![cfg(test)]
 
 #[test]
-fn simple_test() {
-    assert_eq!(67, 67);
-}
+fn simple_test() {}
