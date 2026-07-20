@@ -1,11 +1,15 @@
 use crate::utils::{Node, inner_add, inner_size};
 
-pub struct RBTreeSet<T> {
+pub struct RBTreeSet<T: Ord> {
     root: Option<Box<Node<T>>>,
 }
 
 impl<T: Ord> RBTreeSet<T> {
-    fn add(&mut self, value: T) {
+    pub fn new() -> Self {
+        RBTreeSet { root: None }
+    }
+
+    pub fn add(&mut self, value: T) {
         let new_node = Node {
             value,
             left: None,
@@ -15,15 +19,15 @@ impl<T: Ord> RBTreeSet<T> {
         inner_add(&mut self.root, new_node);
     }
 
-    fn contains(&self, value: T) -> bool {
+    pub fn contains(&self, value: T) -> bool {
         todo!()
     }
 
-    fn remove(&self, value: T) -> bool {
+    pub fn remove(&self, value: T) -> bool {
         todo!()
     }
 
-    fn size(&self) -> usize {
+    pub fn size(&self) -> usize {
         inner_size(&self.root)
     }
 }
