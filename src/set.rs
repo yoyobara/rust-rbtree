@@ -1,9 +1,10 @@
-use crate::{
-    types::{Node, RBTreeSet, RbtreeSetExt},
-    utils::{inner_add, inner_size},
-};
+use crate::utils::{Node, inner_add, inner_size};
 
-impl<T: Ord> RbtreeSetExt<T> for RBTreeSet<T> {
+pub struct RBTreeSet<T> {
+    root: Option<Box<Node<T>>>,
+}
+
+impl<T: Ord> RBTreeSet<T> {
     fn add(&mut self, value: T) {
         let new_node = Node {
             value,

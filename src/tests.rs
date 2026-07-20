@@ -1,4 +1,4 @@
 #![cfg(test)]
 
 #[test]
-fn simple_test() {}
+fn single_element() {}

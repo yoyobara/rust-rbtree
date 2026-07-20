@@ -1,6 +1,10 @@
 use std::cmp::Ordering;
 
-use crate::types::Node;
+pub struct Node<T> {
+    pub value: T,
+    pub right: Option<Box<Self>>,
+    pub left: Option<Box<Self>>,
+}
 
 pub fn inner_add<T: Ord>(root: &mut Option<Box<Node<T>>>, new_node: Node<T>) {
     let Some(root_node) = root else {
