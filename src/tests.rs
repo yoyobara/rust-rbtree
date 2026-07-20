@@ -1,5 +1,7 @@
 #![cfg(test)]
 
+use rand::seq::SliceRandom;
+
 use crate::set::RBTreeSet;
 
 type IntegerSet = RBTreeSet<i32>;
@@ -14,9 +16,11 @@ fn empty_set() {
 fn up_to_hundred_unique() {
     let mut set = IntegerSet::new();
 
-    for i in 1..=100 {
-        set.add(i);
+    let mut values = (1..=100).collect::<Vec<i32>>();
+    values.shuffle(&mut rand::rng());
 
-        assert_eq!(set.size(), i as usize);
+    for (i, val) in values.into_iter().enumerate() {
+        set.add(val);
+        assert_eq!(set.size(), i as usize + 1);
     }
 }
