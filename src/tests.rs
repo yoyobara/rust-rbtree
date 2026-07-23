@@ -6,6 +6,10 @@ use crate::set::RBTreeSet;
 
 type IntegerSet = RBTreeSet<i32>;
 
+fn get_set_example_vec() -> Vec<i32> {
+    vec![0, 2, 4, 5, 10, 11, 15, 100]
+}
+
 fn get_set_example() -> IntegerSet {
     let mut set = IntegerSet::new();
 
@@ -43,8 +47,7 @@ fn up_to_hundred_unique() {
 #[test]
 fn iterating() {
     let set = get_set_example();
+    let set_vec = get_set_example_vec();
 
-    for x in &set {
-        println!("{}", x);
-    }
+    assert_eq!(set.into_iter().copied().collect::<Vec<i32>>(), set_vec);
 }

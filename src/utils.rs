@@ -1,4 +1,4 @@
-use std::{cmp::Ordering, fmt::Display};
+use std::cmp::Ordering;
 
 #[derive(Debug)]
 pub struct Node<T> {
@@ -24,12 +24,4 @@ pub fn inner_add<T: Ord>(root: &mut Option<Box<Node<T>>>, new_node: Node<T>) {
             return;
         }
     };
-}
-
-pub fn inner_size<T>(root: &Option<Box<Node<T>>>) -> usize {
-    if let Some(root_node) = root {
-        1 + inner_size(&root_node.left) + inner_size(&root_node.right)
-    } else {
-        0
-    }
 }

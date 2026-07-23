@@ -1,6 +1,6 @@
 use crate::{
     iter::Iter,
-    utils::{Node, inner_add, inner_size},
+    utils::{Node, inner_add},
 };
 
 pub struct RBTreeSet<T: Ord> {
@@ -22,8 +22,8 @@ impl<T: Ord> RBTreeSet<T> {
         inner_add(&mut self.root, new_node);
     }
 
-    pub fn contains(&self, value: T) -> bool {
-        todo!()
+    pub fn contains(&self, value: &T) -> bool {
+        self.into_iter().any(|item| item == value)
     }
 
     pub fn remove(&self, value: T) -> bool {
@@ -31,7 +31,7 @@ impl<T: Ord> RBTreeSet<T> {
     }
 
     pub fn size(&self) -> usize {
-        inner_size(&self.root)
+        self.into_iter().count()
     }
 }
 
