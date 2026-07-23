@@ -1,5 +1,6 @@
-use std::cmp::Ordering;
+use std::{cmp::Ordering, fmt::Display};
 
+#[derive(Debug)]
 pub struct Node<T> {
     pub value: T,
     pub right: Option<Box<Self>>,

@@ -1,3 +1,4 @@
+mod iter;
 mod set;
 mod tests;
 mod utils;
