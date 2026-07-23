@@ -45,6 +45,14 @@ fn up_to_hundred_unique() {
 }
 
 #[test]
+fn contains_check() {
+    let set = get_set_example();
+
+    assert!(set.contains(&11));
+    assert!(!set.contains(&12));
+}
+
+#[test]
 fn iterating() {
     let set = get_set_example();
     let set_vec = get_set_example_vec();
